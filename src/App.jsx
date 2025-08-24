@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Inqureform from "./components/Inqureform";
 import Overview from "./components/Overview";
 import Amenities from "./components/Amenities";
+import Gallery from "./components/Gallery";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
   <Overview />
     <hr className="w-[95%] items-center mx-auto h-[2px] px-10 border-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 my-12 shadow-md" />
     <Amenities />
+    <hr className="w-[95%] items-center mx-auto h-[2px] px-10 border-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 my-12 shadow-md" />
+    <Gallery />
 </div>
 
   );
