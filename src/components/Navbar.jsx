@@ -4,6 +4,14 @@ import { Menu, X, Phone } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navLinks = [
+    { href: "#home", label: "Overview" },
+    { href: "#about", label: "Amenities" },
+    { href: "#gallery", label: "Gallery" },
+    { href: "#location", label: "Location" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
     <nav className="bg-cyan-600 shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
@@ -13,31 +21,16 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6 font-medium">
           <ul className="flex space-x-6 text-white">
-            <li>
-              <a href="#home" className="hover:text-cyan-400 transition">
-                Overview
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-cyan-400 transition">
-                Amenities
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-cyan-400 transition">
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a href="#gallery" className="hover:text-cyan-400 transition">
-                Location
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-cyan-400 transition">
-                Contact
-              </a>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="hover:text-cyan-300 transition"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
           {/* Phone Button */}
@@ -61,44 +54,19 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-cyan-700 shadow-md">
+        <div className="md:hidden absolute top-full left-0 w-full bg-cyan-700 shadow-lg">
           <ul className="flex flex-col space-y-4 p-4 text-white font-medium">
-            <li>
-              <a
-                href="#home"
-                className="hover:text-cyan-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="hover:text-cyan-200"
-                onClick={() => setIsOpen(false)}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#gallery"
-                className="hover:text-cyan-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="hover:text-cyan-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </a>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="hover:text-cyan-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
           {/* Phone Button in Mobile */}
           <div className="p-4 border-t border-cyan-600">
